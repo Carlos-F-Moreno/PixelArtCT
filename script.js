@@ -20,6 +20,11 @@ btnGenerarGrilla.addEventListener("click", function(){
         nuevoDiv.addEventListener("click", function(){
             nuevoDiv.style.backgroundColor = colorElementoGrid.value;
         })
+        //Evento para poner transparente los divs//
+        nuevoDiv.addEventListener("contextmenu", function(event){
+            event.preventDefault();
+            nuevoDiv.style.backgroundColor = "transparent";
+        })
         //Agregamos los divs al contenedor//
         divContainer.appendChild(nuevoDiv);
     }
