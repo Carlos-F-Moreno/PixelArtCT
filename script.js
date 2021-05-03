@@ -25,8 +25,28 @@ btnGenerarGrilla.addEventListener("click", function(){
             event.preventDefault();
             nuevoDiv.style.backgroundColor = "transparent";
         })
+        
+        // Borrador de Bordes
+        ocultarBordes.addEventListener('click', function(){
+        //    const mostrarOcultar = nuevoDiv.classList.add('mostrarOcultar');
+        //    mostrarOcultar.style.border = '0px solid white';
+        nuevoDiv.classList.toggle('mostrarOcultar');
+        })
+
+        /*
+        ocultarBordes.addEventListener('dblclick',function toggelGrilla(ocultarBordes){
+            const Pintura = ocultarBordes.style.border = '0px solid white';
+            if (!Pintura){
+                ocultarBordes.style.border = '0px solid black';
+            } else{
+                mostrarOcultar.style.border = '0px solid white';
+            };
+        });
+        CONSULTARLO!!!... 
+*/
         //Agregamos los divs al contenedor//
         divContainer.appendChild(nuevoDiv);
+        
     }
 });
 
