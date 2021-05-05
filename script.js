@@ -7,6 +7,7 @@ const colorElementoGrid = document.getElementById("inputColorLapiz");
 const btnMostarOcultarBordes = document.getElementById("mostarOcultarBordes");
 const btnLapiz = document.getElementById("btnLapiz");
 const btnGoma = document.getElementById("btnGoma");
+const inputTamaño = document.getElementById("inputTamaño");
 //variables//
 let modoLapiz = true;
 //
@@ -31,6 +32,9 @@ btnGenerarGrilla.addEventListener("click", function () {
         const nuevoDiv = document.createElement("div");
         //creamos la clase//
         nuevoDiv.classList.add("gridItem");
+        //le damos tamaño a las celdas
+        nuevoDiv.style.width = `${inputTamaño.value}px`
+        nuevoDiv.style.height = `${inputTamaño.value}px`
         //Evento de cambio de color//
         nuevoDiv.addEventListener("click", function () {
             if(modoLapiz === true){
