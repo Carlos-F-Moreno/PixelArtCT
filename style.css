@@ -9,6 +9,7 @@
   border: 1px solid black;
   height: 20px;
   width: 20px;
+<<<<<<< HEAD
   box-sizing: border-box;
 }
 .bordesBlancos{
@@ -25,4 +26,10 @@
   width: 50px;
   height: 50px;
   background-size: cover;
+=======
+}
+
+.mostrarOcultar{
+  border: 0px;
+>>>>>>> 5d197ff36c5ddccbc1543d4b4e85620660363a5f
 }

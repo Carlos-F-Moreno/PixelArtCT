@@ -36,6 +36,7 @@ btnGenerarGrilla.addEventListener("click", function () {
         nuevoDiv.style.width = `${inputTamaño.value}px`
         nuevoDiv.style.height = `${inputTamaño.value}px`
         //Evento de cambio de color//
+<<<<<<< HEAD
         nuevoDiv.addEventListener("click", function () {
             if(modoLapiz === true){
                 nuevoDiv.style.backgroundColor = colorElementoGrid.value;
@@ -47,8 +48,38 @@ btnGenerarGrilla.addEventListener("click", function () {
         btnMostarOcultarBordes.addEventListener("click", function () {
             nuevoDiv.classList.toggle("bordesBlancos");
         });
+=======
+        nuevoDiv.addEventListener("click", function(){
+            nuevoDiv.style.backgroundColor = colorElementoGrid.value;
+        })
+        //Evento para poner transparente los divs//
+        nuevoDiv.addEventListener("contextmenu", function(event){
+            event.preventDefault();
+            nuevoDiv.style.backgroundColor = "transparent";
+        })
+        
+        // Borrador de Bordes
+        ocultarBordes.addEventListener('click', function(){
+        //    const mostrarOcultar = nuevoDiv.classList.add('mostrarOcultar');
+        //    mostrarOcultar.style.border = '0px solid white';
+        nuevoDiv.classList.toggle('mostrarOcultar');
+        })
+
+        /*
+        ocultarBordes.addEventListener('dblclick',function toggelGrilla(ocultarBordes){
+            const Pintura = ocultarBordes.style.border = '0px solid white';
+            if (!Pintura){
+                ocultarBordes.style.border = '0px solid black';
+            } else{
+                mostrarOcultar.style.border = '0px solid white';
+            };
+        });
+        CONSULTARLO!!!... 
+*/
+>>>>>>> 5d197ff36c5ddccbc1543d4b4e85620660363a5f
         //Agregamos los divs al contenedor//
         divContainer.appendChild(nuevoDiv);
+        
     }
 });
 
