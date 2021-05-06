@@ -4,6 +4,7 @@ const filas = document.getElementById("filas");
 const btnGenerarGrilla = document.getElementById("generarGrilla");
 const divContainer = document.getElementById("container");
 const colorElementoGrid = document.getElementById("inputColorLapiz");
+const inputColorFondo = document.getElementById('inputColorFondo');
 const btnMostarOcultarBordes = document.getElementById("mostarOcultarBordes");
 const btnLapiz = document.getElementById("btnLapiz");
 const btnGoma = document.getElementById("btnGoma");
@@ -13,10 +14,14 @@ let modoLapiz = true;
 //
 btnLapiz.addEventListener("click", function () {
     modoLapiz = true;
+    btnLapiz.style.opacity = '1';
+    btnGoma.style.opacity = '0.5';
 });
 //
 btnGoma.addEventListener("click", function () {
     modoLapiz = false;
+    btnGoma.style.opacity = '1';
+    btnLapiz.style.opacity = '0.5';
 });
 
 btnGenerarGrilla.addEventListener("click", function () {
@@ -26,6 +31,9 @@ btnGenerarGrilla.addEventListener("click", function () {
     divContainer.style.backgroundColor = inputColorFondo.value;
     //Le decimos cuantas columnas debe tener//
     divContainer.style.gridTemplateColumns = `repeat(${columnas.value}, 1fr)`;
+    //Lapiz por default
+    btnLapiz.style.opacity = '1';
+    btnGoma.style.opacity = '0.5';
     //Creamos la grilla//
     for (let i = 0; i < columnas.valueAsNumber * filas.valueAsNumber; i++) {
         //creamos los divs//
@@ -36,7 +44,6 @@ btnGenerarGrilla.addEventListener("click", function () {
         nuevoDiv.style.width = `${inputTamaño.value}px`
         nuevoDiv.style.height = `${inputTamaño.value}px`
         //Evento de cambio de color//
-<<<<<<< HEAD
         nuevoDiv.addEventListener("click", function () {
             if(modoLapiz === true){
                 nuevoDiv.style.backgroundColor = colorElementoGrid.value;
@@ -48,38 +55,8 @@ btnGenerarGrilla.addEventListener("click", function () {
         btnMostarOcultarBordes.addEventListener("click", function () {
             nuevoDiv.classList.toggle("bordesBlancos");
         });
-=======
-        nuevoDiv.addEventListener("click", function(){
-            nuevoDiv.style.backgroundColor = colorElementoGrid.value;
-        })
-        //Evento para poner transparente los divs//
-        nuevoDiv.addEventListener("contextmenu", function(event){
-            event.preventDefault();
-            nuevoDiv.style.backgroundColor = "transparent";
-        })
-        
-        // Borrador de Bordes
-        ocultarBordes.addEventListener('click', function(){
-        //    const mostrarOcultar = nuevoDiv.classList.add('mostrarOcultar');
-        //    mostrarOcultar.style.border = '0px solid white';
-        nuevoDiv.classList.toggle('mostrarOcultar');
-        })
-
-        /*
-        ocultarBordes.addEventListener('dblclick',function toggelGrilla(ocultarBordes){
-            const Pintura = ocultarBordes.style.border = '0px solid white';
-            if (!Pintura){
-                ocultarBordes.style.border = '0px solid black';
-            } else{
-                mostrarOcultar.style.border = '0px solid white';
-            };
-        });
-        CONSULTARLO!!!... 
-*/
->>>>>>> 5d197ff36c5ddccbc1543d4b4e85620660363a5f
         //Agregamos los divs al contenedor//
         divContainer.appendChild(nuevoDiv);
-        
     }
 });
 
