@@ -5,12 +5,13 @@ const btnGenerarGrilla = document.getElementById("generarGrilla");
 const divContainer = document.getElementById("container");
 const colorElementoGrid = document.getElementById("inputColorLapiz");
 const inputColorFondo = document.getElementById('inputColorFondo');
-const btnMostarOcultarBordes = document.getElementById("mostarOcultarBordes");
+const chkOcultarBordes = document.getElementById("mostarOcultarBordes");
 const btnLapiz = document.getElementById("btnLapiz");
 const btnGoma = document.getElementById("btnGoma");
 const inputTamaño = document.getElementById("inputTamaño");
 //variables//
 let modoLapiz = true;
+let chequeado = chkOcultarBordes.checked = true;
 //
 btnLapiz.addEventListener("click", function () {
     modoLapiz = true;
@@ -23,8 +24,14 @@ btnGoma.addEventListener("click", function () {
     btnGoma.style.opacity = '1';
     btnLapiz.style.opacity = '0.5';
 });
+inputColorFondo.addEventListener("input", function(event){
+    divContainer.style.background = event.target.value;
+})
+
 
 btnGenerarGrilla.addEventListener("click", function () {
+    //Reiniciamos el chexbox
+    chequeado = chkOcultarBordes.checked = false;
     //Esta linea borra la grilla ya generada//
     divContainer.innerHTML = "";
     //Pintamos el fondo
@@ -52,7 +59,7 @@ btnGenerarGrilla.addEventListener("click", function () {
             }
         });
         //Para acultar los bordes//
-        btnMostarOcultarBordes.addEventListener("click", function () {
+        chkOcultarBordes.addEventListener("click", function () {
             nuevoDiv.classList.toggle("bordesBlancos");
         });
         //Agregamos los divs al contenedor//
